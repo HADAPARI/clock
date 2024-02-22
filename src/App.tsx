@@ -27,9 +27,9 @@ const App = () => {
     period: "AM",
   });
 
-  const hour = useRef();
-  const min = useRef();
-  const sec = useRef();
+  const hour = useRef(document.createElement("div"));
+  const min = useRef(document.createElement("div"));
+  const sec = useRef(document.createElement("div"));
 
   const normalizeNumber = (number: number) => {
     return number > 9 ? number.toString() : "0" + number;
