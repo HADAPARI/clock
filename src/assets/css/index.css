@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+.separator {
+  background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+}
+
+.digital-clock-container,
+.digital-clock {
+  width: 32rem;
+  height: 15rem;
+}
+
+.digital-clock-container::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+  background-size: 200% 200%;
+  top: -5px;
+  left: -5px;
+  bottom: -5px;
+  right: -5px;
+  filter: blur(40px);
+  animation: anim 10s ease infinite;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.clock {
+  width: 28rem;
+}
+
+.hours,
+.dots,
+.minutes {
+  font-weight: 600;
+}
+
+.hours {
+  background: linear-gradient(90deg, #634dff, #5fd4ff);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.minutes {
+  background: linear-gradient(90deg, #ff5e9a, #ffb960);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.period,
+.seconds {
+  font-weight: 500;
+}
+
+.period {
+  background: linear-gradient(90deg, #f7b63f, #faf879);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.seconds {
+  background: linear-gradient(90deg, #24ff6d, #2f93f1);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.calendar {
+  background: linear-gradient(90deg, #ae4af6, #ff98d1);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.format-switch::before {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: #ff5e9a;
+  box-shadow: 0 5px 25px #ff5e9a;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.format-switch.active::before {
+  background-color: #0bff8d;
+  box-shadow: 0 5px 25px #0bff8d;
+  transform: translateX(1rem);
+}
+
+.right-pane {
+  background: linear-gradient(90deg, #ae4af6, #ff98d1);
+}
+
+.analog-clock {
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 5s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.clock-surface {
+  width: 23rem;
+  height: 23rem;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.2)),
+    url("../img/clock.png");
+  background-size: cover;
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: none;
+  border-left: none;
+  box-shadow: -10px 10px 20px rgba(255, 255, 255, 0.1),
+    -10px 10px 20px rgba(0, 0, 0, 0.1), -10px 40px 50px rgba(0, 0, 0, 0.2);
+}
+
+.clock-surface::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  z-index: 50;
+}
+
+.hour::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 80px;
+  background: #ff105e;
+  border-radius: 1rem;
+  transform: translateY(-38px);
+  z-index: 10;
+}
+
+.min::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 90px;
+  background: #ffffff;
+  border-radius: 1rem;
+  transform: translateY(-43px);
+  z-index: 11;
+}
+
+.sec::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  background: #ffffff;
+  border-radius: 1rem;
+  transform: translateY(-43px);
+  z-index: 110;
+}
